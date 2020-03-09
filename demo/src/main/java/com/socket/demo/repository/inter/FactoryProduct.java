@@ -1,4 +1,4 @@
-package com.socket.demo.model;
+package com.socket.demo.repository.inter;
 
 public interface FactoryProduct {
     String getName();

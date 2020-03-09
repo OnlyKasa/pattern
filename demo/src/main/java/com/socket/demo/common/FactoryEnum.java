@@ -1,4 +1,4 @@
-package com.socket.demo.c_enum;
+package com.socket.demo.common;
 
 public enum FactoryEnum {
     PRODUCT_1,

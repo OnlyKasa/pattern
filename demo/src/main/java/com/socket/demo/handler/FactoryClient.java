@@ -1,8 +1,8 @@
 package com.socket.demo.handler;
 
-import com.socket.demo.c_enum.FactoryEnum;
-import com.socket.demo.model.FactoryProduct;
-import com.socket.demo.service.Factory;
+import com.socket.demo.common.FactoryEnum;
+import com.socket.demo.repository.inter.FactoryProduct;
+import com.socket.demo.service.impl.Factory;
 
 public class FactoryClient {
 

@@ -1,4 +1,6 @@
-package com.socket.demo.model;
+package com.socket.demo.repository.impl;
+
+import com.socket.demo.repository.inter.FactoryProduct;
 
 public class FactoryProduct1 implements FactoryProduct {
     @Override

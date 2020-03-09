@@ -1,11 +1,13 @@
-package com.socket.demo.service;
+package com.socket.demo.service.impl;
 
-import com.socket.demo.c_enum.FactoryEnum;
-import com.socket.demo.model.FactoryProduct;
-import com.socket.demo.model.FactoryProduct1;
-import com.socket.demo.model.FactoryProduct2;
+import com.socket.demo.common.FactoryEnum;
+import com.socket.demo.repository.inter.FactoryProduct;
+import com.socket.demo.repository.impl.FactoryProduct1;
+import com.socket.demo.repository.impl.FactoryProduct2;
 
 public class Factory {
+
+    private Factory() {}
     public static FactoryProduct getProduct(FactoryEnum productName) {
         switch (productName) {
             case PRODUCT_1:
