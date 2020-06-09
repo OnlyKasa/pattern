@@ -35,7 +35,7 @@
 2. Bước 2: Định nghĩa một command class implement command interface (Mỗi class này đồng thời là một receiver class, Các trường hợp xảy ra thể hiện bằng 1 class)
 
         /**
-        * Định nghĩa một command class
+        * Định nghĩa một command class thực hiện thi request run job 1
         */
         public static class Job1001 implements  JobCommand {
 
@@ -66,17 +66,48 @@
             }
         }
 
+        /**
+        * Định nghĩa một command class thực hiện thi request run job 2
+        */
+        public static class Job1002 implements  JobCommand {
+
+            @Override
+            public void prepare() {
+                System.out.println("Prepare2--------");
+                // do something
+            }
+
+            @Override
+            public void execute() {
+                System.out.println("Execute2--------");
+                // do something
+            }
+
+            @Override
+            public void onComplete() {
+                System.out.println("Complete2--------");
+                // need log response
+                // do something
+            }
+
+            @Override
+            public void onError(Exception e) {
+                System.out.println("Error2--------");
+                // need log error
+                // do something
+            }
+        }
+
 3. Bước 3: Định nghĩa một lớp invoker class để gọi command
 
         /**
-        * Định nghĩa một invoker class
+        * Định nghĩa một invoker class nhận request từ client thực thi một chuỗi hành động nhưng không biết rõ cụ thể những gì được thực thi.
         */
         public class JobExecutor {
             /**
             * trigger or callable
             */
-            public static void runner () {
-                JobCommand jobCommand = new Job1002();
+            public static void runner (JobCommand jobCommand) {
                 jobCommand.prepare();
 
                 try{
@@ -87,9 +118,11 @@
                     throw e;
                 }
             }
+        }
+4. Bước 4: Định nghĩa 1 client gọi function runner
 
             // Client class sẽ chứa method này.
-            public static void main(String[] args) {
-                runner();
-            }
+        public static void main(String[] args) {
+            JobExecutor.runner(new Job1001());
+            JobExecutor.runner(new Job1002());
         }
